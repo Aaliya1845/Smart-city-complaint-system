@@ -22,6 +22,76 @@ def initialize_database():
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )
     """)
+    def insert_complaint(
+    complaint_id,
+    user_email,
+    category,
+    priority,
+    location,
+    description,
+    image,
+    ai_summary,
+    assigned_department
+):
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        INSERT INTO complaints (
+            complaint_id,
+            user_email,
+            category,
+            priority,
+            location,
+            description,
+            image,
+            ai_summary,
+            assigned_department
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+    """, (
+        complaint_id,
+        user_email,
+        category,
+        priority,
+        location,
+        description,
+        image,
+        ai_summary,
+        assigned_department
+    ))
+
+    conn.commit()
+    conn.close()
+
+
+def get_all_complaints():
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM complaints ORDER BY created_at DESC")
+
+    data = cursor.fetchall()
+
+    conn.close()
+
+    return data
+
+
+def get_complaint_by_id(complaint_id):
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "SELECT * FROM complaints WHERE complaint_id=?",
+        (complaint_id,)
+    )
+
+    complaint = cursor.fetchone()
+
+    conn.close()
+
+    return complaint
 
     # Complaints Table
     cursor.execute("""
