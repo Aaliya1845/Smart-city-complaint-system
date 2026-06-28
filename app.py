@@ -1,5 +1,9 @@
 import streamlit as st
 
+from utils.sidebar import show_sidebar
+from pages.dashboard import show_dashboard
+from pages.raise_complaint import show_raise_complaint
+
 st.set_page_config(
     page_title="Smart City Complaint System",
     page_icon="🏙️",
@@ -10,40 +14,41 @@ st.set_page_config(
 # Load CSS
 with open("css/style.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-    from utils.sidebar import show_sidebar
-from pages.dashboard import show_dashboard
 
+# Sidebar Navigation
 selected = show_sidebar()
 
+# Page Routing
 if selected == "Dashboard":
     show_dashboard()
 
-else:
-    st.title(selected)
-    st.info(f"🚧 {selected} page is under development.")
+elif selected == "Raise Complaint":
+    show_raise_complaint()
 
-st.markdown(
-    """
-    <div class="main-title">
-        🏙️ Smart City Complaint System
-    </div>
+elif selected == "Track Complaint":
+    st.title("📍 Track Complaint")
+    st.info("🚧 Coming Soon...")
 
-    <div class="subtitle">
-        AI Powered Complaint Management Platform
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
+elif selected == "My Complaints":
+    st.title("📂 My Complaints")
+    st.info("🚧 Coming Soon...")
 
-st.info("🚀 Project setup completed successfully!")
+elif selected == "AI Assistant":
+    st.title("🤖 AI Assistant")
+    st.info("🚧 Coming Soon...")
 
-st.write("")
-st.write("### Welcome")
+elif selected == "Reports":
+    st.title("📊 Reports")
+    st.info("🚧 Coming Soon...")
 
-st.write(
-    """
-This is the beginning of our AI-powered Smart City Complaint System.
+elif selected == "Notifications":
+    st.title("🔔 Notifications")
+    st.info("🚧 Coming Soon...")
 
-In the next step, we'll build the premium dashboard that matches the UI design.
-"""
-)
+elif selected == "Profile":
+    st.title("👤 Profile")
+    st.info("🚧 Coming Soon...")
+
+elif selected == "Settings":
+    st.title("⚙️ Settings")
+    st.info("🚧 Coming Soon...")
