@@ -10,9 +10,17 @@ st.set_page_config(
 # Load CSS
 with open("css/style.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-    from pages.dashboard import show_dashboard
+    from utils.sidebar import show_sidebar
+from pages.dashboard import show_dashboard
 
-show_dashboard()
+selected = show_sidebar()
+
+if selected == "Dashboard":
+    show_dashboard()
+
+else:
+    st.title(selected)
+    st.info(f"🚧 {selected} page is under development.")
 
 st.markdown(
     """
