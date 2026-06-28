@@ -117,6 +117,17 @@ def show_raise_complaint():
         )
 
         df.to_csv(file, index=False)
+insert_complaint(
+    complaint_id=complaint_id,
+    user_email=st.session_state.email,
+    category=category,
+    priority=priority,
+    location=location,
+    description=description,
+    image=image_name,
+    ai_summary=ai_summary,
+    assigned_department=department,
+)
 
         st.success("✅ Complaint Registered Successfully!")
 
