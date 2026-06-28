@@ -4,6 +4,7 @@ from utils.sidebar import show_sidebar
 from pages.dashboard import show_dashboard
 from pages.raise_complaint import show_raise_complaint
 from pages.track_complaint import show_track_complaint
+from pages.login import show_login
 
 st.set_page_config(
     page_title="Smart City Complaint System",
@@ -16,10 +17,19 @@ st.set_page_config(
 with open("css/style.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-# Sidebar Navigation
+# 👇 Add these lines HERE
+if "logged_in" not in st.session_state:
+    st.session_state.logged_in = False
+
+# Show login page if user is not logged in
+if not st.session_state.logged_in:
+    show_login()
+    st.stop()
+
+# Sidebar
 selected = show_sidebar()
 
-# Page Routing
+# Navigation
 if selected == "Dashboard":
     show_dashboard()
 
