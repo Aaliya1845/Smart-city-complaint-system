@@ -3,7 +3,7 @@ import pandas as pd
 import os
 from datetime import datetime
 import uuid
-
+from utils.ai_engine import analyze_complaint
 
 def generate_complaint_id():
     return "CMP-" + str(uuid.uuid4())[:8].upper()
@@ -59,6 +59,15 @@ def show_raise_complaint():
     if submit:
 
         complaint_id = generate_complaint_id()
+        if description:
+
+    with st.spinner("🤖 AI is analyzing your complaint..."):
+
+        ai_result = analyze_complaint(description)
+
+    st.subheader("🤖 AI Analysis")
+
+    st.code(ai_result)
 
         image_name = ""
 
