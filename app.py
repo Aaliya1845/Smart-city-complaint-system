@@ -3,6 +3,7 @@ import streamlit as st
 from utils.sidebar import show_sidebar
 from pages.dashboard import show_dashboard
 from pages.raise_complaint import show_raise_complaint
+from pages.track_complaint import show_track_complaint
 
 st.set_page_config(
     page_title="Smart City Complaint System",
@@ -26,8 +27,7 @@ elif selected == "Raise Complaint":
     show_raise_complaint()
 
 elif selected == "Track Complaint":
-    st.title("📍 Track Complaint")
-    st.info("🚧 Coming Soon...")
+    show_track_complaint()
 
 elif selected == "My Complaints":
     st.title("📂 My Complaints")
