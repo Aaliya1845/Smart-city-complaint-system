@@ -1,9 +1,7 @@
-import pandas as pd
-import os
+import sqlite3
 import hashlib
 
-
-USER_FILE = "data/users.csv"
+DB_NAME = "database.db"
 
 
 def hash_password(password):
@@ -11,47 +9,42 @@ def hash_password(password):
 
 
 def create_user(name, email, password):
+    conn = sqlite3.connect(DB_NAME)
+    cursor = conn.cursor()
 
-    os.makedirs("data", exist_ok=True)
+    cursor.execute("SELECT * FROM users WHERE email = ?", (email,))
+    existing = cursor.fetchone()
 
-    if os.path.exists(USER_FILE):
-        df = pd.read_csv(USER_FILE)
-    else:
-        df = pd.DataFrame(
-            columns=["Name", "Email", "Password"]
-        )
-
-    if email in df["Email"].values:
+    if existing:
+        conn.close()
         return False
 
-    new_user = {
-        "Name": name,
-        "Email": email,
-        "Password": hash_password(password)
-    }
-
-    df = pd.concat(
-        [df, pd.DataFrame([new_user])],
-        ignore_index=True
+    cursor.execute(
+        """
+        INSERT INTO users(name, email, password)
+        VALUES (?, ?, ?)
+        """,
+        (name, email, hash_password(password)),
     )
 
-    df.to_csv(USER_FILE, index=False)
+    conn.commit()
+    conn.close()
 
     return True
 
 
 def login_user(email, password):
 
-    if not os.path.exists(USER_FILE):
-        return False
+    conn = sqlite3.connect(DB_NAME)
+    cursor = conn.cursor()
 
-    df = pd.read_csv(USER_FILE)
+    cursor.execute(
+        "SELECT * FROM users WHERE email=? AND password=?",
+        (email, hash_password(password)),
+    )
 
-    user = df[df["Email"] == email]
+    user = cursor.fetchone()
 
-    if user.empty:
-        return False
+    conn.close()
 
-    stored = user.iloc[0]["Password"]
-
-    return stored == hash_password(password)
+    return user
