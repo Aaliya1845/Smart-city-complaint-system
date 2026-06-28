@@ -25,14 +25,21 @@ def show_login():
 
         if st.button("Login"):
 
-            if login_user(email, password):
+            user = login_user(email, password)
 
-                st.session_state.logged_in = True
-                st.session_state.email = email
+if user:
 
-                st.success("Login Successful!")
+    st.session_state.logged_in = True
+    st.session_state.email = email
+    st.session_state.user_name = user[1]
 
-                st.rerun()
+    st.success("Welcome " + user[1] + " 🎉")
+
+    st.rerun()
+
+else:
+
+    st.error("Invalid Email or Password")
 
             else:
 
