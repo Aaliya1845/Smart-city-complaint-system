@@ -5,12 +5,17 @@ from utils.cards import stat_card
 
 def show_dashboard():
 
-    st.markdown("""
-    <div class="banner">
-        <h1>🏙️ Welcome Back!</h1>
-        <p>Help make your city cleaner, safer and smarter with AI.</p>
-    </div>
-    """, unsafe_allow_html=True)
+  st.markdown(f"""
+<div class="banner">
+
+<h1>👋 Welcome {st.session_state.user_name}</h1>
+
+<p>
+AI Powered Smart City Complaint Management System
+</p>
+
+</div>
+""", unsafe_allow_html=True)
 
     st.write("")
 
