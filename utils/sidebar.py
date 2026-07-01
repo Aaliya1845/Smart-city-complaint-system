@@ -1,6 +1,7 @@
 from streamlit_option_menu import option_menu
 import streamlit as st
 
+
 def show_sidebar():
 
     with st.sidebar:
@@ -24,6 +25,7 @@ def show_sidebar():
                 "Raise Complaint",
                 "Track Complaint",
                 "My Complaints",
+                "Admin Dashboard",
                 "AI Assistant",
                 "Reports",
                 "Notifications",
@@ -35,6 +37,7 @@ def show_sidebar():
                 "plus-circle-fill",
                 "geo-alt-fill",
                 "folder-fill",
+                "shield-lock-fill",
                 "robot",
                 "bar-chart-fill",
                 "bell-fill",
