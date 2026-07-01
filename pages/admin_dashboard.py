@@ -2,6 +2,8 @@ import streamlit as st
 import sqlite3
 import pandas as pd
 
+from utils.charts import get_category_chart, get_status_chart
+
 DB_NAME = "database.db"
 
 def show_admin_dashboard():
@@ -38,6 +40,22 @@ def show_admin_dashboard():
     c4.metric("In Progress", progress)
 
     st.divider()
+
+    st.subheader("📊 Analytics")
+
+col1, col2 = st.columns(2)
+
+with col1:
+    category_chart = get_category_chart()
+    if category_chart:
+        st.plotly_chart(category_chart, use_container_width=True)
+
+with col2:
+    status_chart = get_status_chart()
+    if status_chart:
+        st.plotly_chart(status_chart, use_container_width=True)
+
+st.divider()
 
     st.subheader("All Complaints")
 
