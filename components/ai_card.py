@@ -2,26 +2,23 @@ import streamlit as st
 
 def ai_card():
 
+    st.image(
+        "assets/ai_robot.png",
+        use_container_width=True
+    )
+
     st.markdown("""
-    <div style="
-    background:white;
-    border-radius:25px;
-    padding:25px;
-    box-shadow:0px 10px 20px rgba(0,0,0,.08);
-    ">
+    ### 🤖 AI Assistant
 
-    <h2>🤖 AI Assistant</h2>
+    I can help you with:
 
-    <p>Hello Citizen 👋</p>
+    ✅ Complaint Analysis
 
-    <p>I can help with:</p>
+    ✅ Priority Prediction
 
-    <ul>
-        <li>Complaint Analysis</li>
-        <li>Priority Prediction</li>
-        <li>Department Recommendation</li>
-        <li>Complaint Tracking</li>
-    </ul>
+    ✅ Department Recommendation
 
-    </div>
-    """, unsafe_allow_html=True)
+    ✅ Complaint Tracking
+
+    ✅ City Information
+    """)
