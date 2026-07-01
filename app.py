@@ -64,6 +64,9 @@ elif selected == "Track Complaint":
 elif selected == "My Complaints":
     show_my_complaints()
 
+elif selected == "Admin Dashboard":
+    show_admin_dashboard()
+
 elif selected == "AI Assistant":
     st.title("🤖 AI Assistant")
     st.info("🚧 Coming Soon...")
