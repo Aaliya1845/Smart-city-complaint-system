@@ -7,6 +7,8 @@ from pages.login import show_login
 from pages.dashboard import show_dashboard
 from pages.raise_complaint import show_raise_complaint
 from pages.track_complaint import show_track_complaint
+from pages.my_complaints import show_my_complaints
+from pages.admin_dashboard import show_admin_dashboard
 
 # -----------------------------
 # Page Configuration
@@ -60,8 +62,7 @@ elif selected == "Track Complaint":
     show_track_complaint()
 
 elif selected == "My Complaints":
-    st.title("📂 My Complaints")
-    st.info("🚧 Coming Soon...")
+    show_my_complaints()
 
 elif selected == "AI Assistant":
     st.title("🤖 AI Assistant")
