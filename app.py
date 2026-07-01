@@ -86,3 +86,4 @@ elif selected == "Profile":
 elif selected == "Settings":
     st.title("⚙️ Settings")
     st.info("🚧 Coming Soon...")
+elif
