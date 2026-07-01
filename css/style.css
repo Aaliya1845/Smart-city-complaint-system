@@ -1,138 +1,103 @@
+/* =======================================================
+   SMART CITY COMPLAINT SYSTEM - PREMIUM THEME
+   Pink • Light Blue • Brown
+======================================================= */
+
 /* Background */
 
-.stApp {
-    background: linear-gradient(135deg,#FFF6FB,#EAF8FF);
+.stApp{
+    background: linear-gradient(135deg,#FFF2F8,#EEF8FF);
 }
 
-/* Title */
-
-.main-title{
-
-font-size:42px;
-
-font-weight:800;
-
-text-align:center;
-
-color:#F48FB1;
-
-margin-top:15px;
-
-}
-
-.subtitle{
-
-text-align:center;
-
-font-size:20px;
-
-color:#6AAFE6;
-
-margin-bottom:30px;
-
-}
-.banner{
-
-background:linear-gradient(90deg,#DDF2FF,#FFE6F1);
-
-padding:30px;
-
-border-radius:25px;
-
-box-shadow:0px 8px 20px rgba(0,0,0,.08);
-
-margin-bottom:20px;
-
-}
-
-.card{
-
-background:white;
-
-padding:20px;
-
-border-radius:20px;
-
-text-align:center;
-
-box-shadow:0px 6px 18px rgba(0,0,0,.08);
-
-transition:.3s;
-
-}
-
-.card:hover{
-
-transform:translateY(-5px);
-
-}
-
-.blue{
-
-background:#DDF4FF;
-
-}
-
-.brown{
-
-background:#F3E3DA;
-
-}
-
-.ai-box{
-
-background:white;
-
-padding:25px;
-
-border-radius:20px;
-
-box-shadow:0px 6px 18px rgba(0,0,0,.08);
-
-}
 /* Sidebar */
 
 section[data-testid="stSidebar"]{
+    background:#FFE8F2;
+    border-right:2px solid #D9EEFF;
+}
 
-background:#FFF5FA;
+/* Main Container */
 
-border-right:3px solid #E5F5FF;
+.block-container{
+    padding-top:2rem;
+    padding-bottom:2rem;
+    padding-left:2rem;
+    padding-right:2rem;
+}
+
+/* Buttons */
+
+.stButton > button{
+
+    background:#F48FB1;
+
+    color:white;
+
+    border:none;
+
+    border-radius:14px;
+
+    padding:12px 18px;
+
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.stButton > button:hover{
+
+    background:#EC6C9F;
+
+    transform:translateY(-2px);
+}
+
+/* Text Inputs */
+
+.stTextInput input{
+
+    border-radius:12px;
 
 }
 
-/* Option Menu */
+.stTextArea textarea{
 
-.nav-link{
-
-border-radius:15px !important;
-
-margin-bottom:6px;
-
-font-weight:600;
+    border-radius:12px;
 
 }
 
-.nav-link:hover{
+.stSelectbox div{
 
-background:#DFF4FF !important;
-
-}
-
-.nav-link-selected{
-
-background:#F48FB1 !important;
-
-color:white !important;
-
-border-radius:15px;
+    border-radius:12px;
 
 }
 
 /* Cards */
 
-.card{
+.custom-card{
 
-cursor:pointer;
+    background:white;
+
+    border-radius:20px;
+
+    padding:20px;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.08);
+
+    margin-bottom:20px;
+
+}
+
+/* Metrics */
+
+div[data-testid="stMetric"]{
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:18px;
+
+    box-shadow:0px 8px 18px rgba(0,0,0,.08);
 
 }
 
@@ -140,19 +105,36 @@ cursor:pointer;
 
 [data-testid="stDataFrame"]{
 
-border-radius:15px;
+    border-radius:18px;
 
-overflow:hidden;
+    overflow:hidden;
 
 }
-div[data-testid="stMetric"]{
 
-background:white;
+/* Headings */
 
-padding:15px;
+h1{
 
-border-radius:15px;
+    color:#E75480;
 
-box-shadow:0px 6px 18px rgba(0,0,0,.08);
+}
+
+h2{
+
+    color:#4F9DD9;
+
+}
+
+h3{
+
+    color:#8D6E63;
+
+}
+
+/* Divider */
+
+hr{
+
+    border:1px solid #F6D3E2;
 
 }
