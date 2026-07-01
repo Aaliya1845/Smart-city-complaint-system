@@ -7,12 +7,17 @@ from components.ai_card import ai_card
 
 def show_dashboard():
 
-    # Hero Banner
+    # ==========================
+    # Hero Section
+    # ==========================
     hero_section()
 
     st.write("")
 
+    # ==========================
     # Statistics Cards
+    # ==========================
+
     col1, col2, col3, col4 = st.columns(4)
 
     with col1:
@@ -48,39 +53,97 @@ def show_dashboard():
         )
 
     st.write("")
+    st.divider()
 
-    # Main Dashboard Layout
+    # ==========================
+    # Analytics + AI Section
+    # ==========================
+
     left, right = st.columns([2, 1])
 
     with left:
 
-        st.subheader("📋 Recent Complaints")
+        st.subheader("📊 Analytics Dashboard")
 
-        st.dataframe(
-            {
-                "Complaint ID": [
-                    "CMP001",
-                    "CMP002",
-                    "CMP003",
-                    "CMP004"
-                ],
-                "Category": [
-                    "Garbage",
-                    "Road Damage",
-                    "Street Light",
-                    "Water Leakage"
-                ],
-                "Status": [
-                    "Pending",
-                    "Resolved",
-                    "In Progress",
-                    "Pending"
-                ]
-            },
-            use_container_width=True,
-            hide_index=True
+        st.info(
+            "📈 Live analytics charts will appear here in the next step."
+        )
+
+        st.write("")
+
+        st.metric(
+            "Today's Complaints",
+            "18",
+            "+5"
+        )
+
+        st.metric(
+            "Resolved Today",
+            "12",
+            "+3"
         )
 
     with right:
 
         ai_card()
+
+    st.write("")
+    st.divider()
+
+    # ==========================
+    # Recent Complaints
+    # ==========================
+
+    st.subheader("📋 Recent Complaints")
+
+    st.dataframe(
+        {
+            "Complaint ID": [
+                "CMP001",
+                "CMP002",
+                "CMP003",
+                "CMP004",
+                "CMP005"
+            ],
+            "Category": [
+                "Garbage",
+                "Road Damage",
+                "Street Light",
+                "Water Leakage",
+                "Electricity"
+            ],
+            "Priority": [
+                "Medium",
+                "High",
+                "Low",
+                "High",
+                "Medium"
+            ],
+            "Status": [
+                "Pending",
+                "Resolved",
+                "In Progress",
+                "Pending",
+                "Resolved"
+            ]
+        },
+        use_container_width=True,
+        hide_index=True
+    )
+
+    st.write("")
+    st.divider()
+
+    # ==========================
+    # Notifications
+    # ==========================
+
+    st.subheader("🔔 Latest Updates")
+
+    st.success("✅ Garbage complaint CMP002 has been resolved.")
+
+    st.info("🚧 Road repair work has started in Sector 12.")
+
+    st.warning("⚠ Heavy rain may delay water leakage repairs.")
+
+    st.success("🤖 AI has categorized today's complaints automatically.")
